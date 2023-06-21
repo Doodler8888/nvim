@@ -34,12 +34,14 @@ return require('packer').startup(function(use)
   use 'hashivim/vim-terraform'
   use 'tpope/vim-repeat'
   use 'ggandor/leap.nvim'
-  use {
-	  'Exafunction/codeium.vim',
-	  config = function ()
-		  vim.keymap.set('i', '<C-a>', function () return vim.fn['codeium#Accept']() end, { expr = true })
-	  end
-  }
+  use 'farmergreg/vim-lastplace'
+  use 'LnL7/vim-nix'
+  -- use {
+	 --  'Exafunction/codeium.vim',
+	 --  config = function ()
+		--   vim.keymap.set('i', '<C-a>', function () return vim.fn['codeium#Accept']() end, { expr = true })
+	 --  end
+  -- }
   use 'pearofducks/ansible-vim'
   use({
         "kylechui/nvim-surround",
