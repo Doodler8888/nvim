@@ -1,6 +1,12 @@
 require("wurfkreuz")
 
 vim.cmd('colorscheme rose-pine')
+vim.cmd('highlight Normal guibg=NONE ctermbg=NONE')
+vim.cmd('highlight NonText guibg=NONE ctermbg=NONE')
+vim.cmd('highlight LineNr guibg=NONE ctermbg=NONE')
+vim.cmd('highlight CursorLineNr guibg=NONE ctermbg=NONE')
+vim.cmd('highlight SignColumn guibg=NONE ctermbg=NONE')
+
 vim.o.clipboard = "unnamedplus"
 
 --  Prevent auto commenting on new lines

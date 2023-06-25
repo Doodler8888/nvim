@@ -36,6 +36,7 @@ return require('packer').startup(function(use)
   use 'ggandor/leap.nvim'
   use 'farmergreg/vim-lastplace'
   use 'LnL7/vim-nix'
+  use 'folke/twilight.nvim'
   use {
 	  'Exafunction/codeium.vim',
 	  config = function ()

@@ -13,6 +13,7 @@ vim.opt.undofile = true
 vim.opt.hlsearch = false
 vim.opt.incsearch = true
 
+vim.opt.signcolumn = "auto"
 vim.opt.shiftwidth = 2
 vim.opt.termguicolors = true
 vim.opt.scrolloff = 8

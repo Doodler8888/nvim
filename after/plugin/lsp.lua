@@ -8,6 +8,7 @@ local cmp = require('cmp')
 local lspconfig = require('lspconfig')
 lspconfig.pylsp.setup {}
 lspconfig.terraformls.setup {}
+lspconfig.ansiblels.setup {}
 -- lspconfig.rust_analyzer.setup {
 --   -- Server-specific settings. See `:help lspconfig-setup`
 --   settings = {
@@ -61,6 +62,16 @@ nvim_lsp.terraformls.setup{
   end,
   filetypes = {"tf", "hcl", "terraform"},
 }
+
+-- Setup the ansiblels
+nvim_lsp.ansiblels.setup{
+  on_attach = function(client, bufnr)
+    -- Enable completion on the client
+    require('cmp_nvim_lsp').setup()
+  end,
+  filetypes = {"yaml"},
+}
+
 
 -- Setup the pylsp
 nvim_lsp.pylsp.setup{
