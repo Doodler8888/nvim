@@ -10,10 +10,10 @@ cmp.setup({
     ['<C-e>'] = cmp.mapping.close(),
     ['<CR>'] = cmp.mapping.confirm({ select = true }),
   },
-  sources = {
-    { name = 'nvim_lsp' },
-    { name = 'buffer' },
-    { name = 'path' },
-    { name = 'codeium' },
-  }
+  -- sources = {
+  --   { name = 'nvim_lsp' },
+  --   { name = 'buffer' },
+  --   { name = 'path' },
+  --   { name = 'codeium' },
+  -- }
 })

@@ -100,6 +100,8 @@ cmp.setup({
   },
   sources = {
     { name = 'nvim_lsp' },
-    -- You can add more sources here
+    { name = 'buffer' },
+    { name = 'path' },
+    { name = 'codeium' },
   },
 })
