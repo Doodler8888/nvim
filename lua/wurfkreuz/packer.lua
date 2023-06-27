@@ -36,7 +36,18 @@ return require('packer').startup(function(use)
   use 'ggandor/leap.nvim'
   use 'farmergreg/vim-lastplace'
   use 'LnL7/vim-nix'
-  use 'folke/twilight.nvim'
+  use 'eandrju/cellular-automaton.nvim'
+  use 'dense-analysis/ale'
+  use 'mg979/vim-visual-multi'
+  use {
+      "folke/trouble.nvim",
+       dependencies = { "nvim-tree/nvim-web-devicons" },
+        opts = {
+          -- your configuration comes here
+          -- or leave it empty to use the default settings
+          -- refer to the configuration section below
+},
+}
   use {
 	  'Exafunction/codeium.vim',
 	  config = function ()
