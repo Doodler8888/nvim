@@ -1,7 +1,5 @@
 require("wurfkreuz")
 
-vim.cmd('colorscheme rose-pine')
-
 vim.o.clipboard = "unnamedplus"
 
 vim.keymap.set("n", "<leader>play", "<cmd>CellularAutomaton make_it_rain<CR>")
