@@ -38,7 +38,6 @@ local plugins = {
 	 'eandrju/cellular-automaton.nvim',
 	 'dense-analysis/ale',
 	 'mg979/vim-visual-multi',
-	 'svermeulen/text-to-colorscheme.nvim',
 	 {
 	   "folke/trouble.nvim",
 	   dependencies = { "nvim-tree/nvim-web-devicons" },
@@ -118,9 +117,9 @@ local plugins = {
 	 -- cmp
 	 {
 	   "neovim/nvim-lspconfig",
-	   opts = {
-	     inlay_hints = { enabled = true },
-	   },
+	   -- opts = {
+	   --   inlay_hints = { enabled = true },
+	   -- },
 	 },
 	 'hrsh7th/cmp-buffer',
 	 'hrsh7th/cmp-path',
