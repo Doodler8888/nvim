@@ -11,11 +11,11 @@ require('rose-pine').setup({
 
 	--- @usage string hex value or named color from rosepinetheme.com/palette
 	groups = {
-		background = 'base',
-		background_nc = '_experimental_nc',
-		panel = 'surface',
-		panel_nc = 'base',
-		border = 'highlight_med',
+		background = '',
+		background_nc = '',
+		panel = '',
+		panel_nc = '',
+		border = '',
 		comment = 'muted',
 		link = 'iris',
 		punctuation = 'subtle',
@@ -40,7 +40,7 @@ require('rose-pine').setup({
 	-- Change specific vim highlight groups
 	-- https://github.com/rose-pine/neovim/wiki/Recipes
 	highlight_groups = {
-		ColorColumn = { bg = 'subtle', blend = 50 },
+		ColorColumn = { bg = 'subtle', blend = 35 },
 
 		-- Blend colours against the "base" background
 		CursorLine = { bg = 'foam', blend = 10 },

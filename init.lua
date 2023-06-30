@@ -11,3 +11,4 @@ vim.cmd([[autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatop
 vim.api.nvim_exec([[
   autocmd BufNewFile,BufRead *.tf setfiletype terraform
 ]], false)
+
