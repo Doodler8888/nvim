@@ -82,14 +82,14 @@ nvim_lsp.pylsp.setup{
   -- Add filetypes if needed
 }
 
--- Setup the yamlls
-nvim_lsp.yamlls.setup{
-  on_attach = function(client, bufnr)
-    -- Enable completion on the client
-    require('cmp_nvim_lsp').setup()
-  end,
-  -- Add filetypes if needed
-}
+-- -- Setup the yamlls
+-- nvim_lsp.yamlls.setup{
+--   on_attach = function(client, bufnr)
+--     -- Enable completion on the client
+--     require('cmp_nvim_lsp').setup()
+--   end,
+--   -- Add filetypes if needed
+-- }
 
 -- Setup nvim-cmp.
 cmp.setup({

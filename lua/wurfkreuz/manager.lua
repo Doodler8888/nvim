@@ -39,6 +39,10 @@ local plugins = {
 	 'dense-analysis/ale',
 	 'mg979/vim-visual-multi',
 	 {
+	   "m4xshen/smartcolumn.nvim",
+	   opts = {}
+	 },
+	 {
 	   "folke/trouble.nvim",
 	   dependencies = { "nvim-tree/nvim-web-devicons" },
 	   opts = {
