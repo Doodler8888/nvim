@@ -1,5 +1,5 @@
-require("nvim-surround").setup({
-    keymaps = {
-        visual = "g",
-    },
-})
+-- require("nvim-surround").setup({
+--     keymaps = {
+--         visual = "g",
+--     },
+-- })
