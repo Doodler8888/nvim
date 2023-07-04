@@ -1,20 +1,6 @@
--- require'lspconfig'.terraformls.setup{}
-
--- This should be in your `init.lua` or a Lua file sourced by your `init.lua`
 local nvim_lsp = require('lspconfig')
+local util = nvim_lsp.util
 local cmp = require('cmp')
-
--- Setup language servers.
-local lspconfig = require('lspconfig')
-lspconfig.pylsp.setup {}
-lspconfig.terraformls.setup {}
-lspconfig.ansiblels.setup {}
--- lspconfig.rust_analyzer.setup {
---   -- Server-specific settings. See `:help lspconfig-setup`
---   settings = {
---     ['rust-analyzer'] = {},
---   },
--- }
 
 -- Global mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
@@ -72,7 +58,6 @@ nvim_lsp.ansiblels.setup{
   filetypes = {"yaml"},
 }
 
-
 -- Setup the pylsp
 nvim_lsp.pylsp.setup{
   on_attach = function(client, bufnr)
@@ -82,14 +67,23 @@ nvim_lsp.pylsp.setup{
   -- Add filetypes if needed
 }
 
--- -- Setup the yamlls
--- nvim_lsp.yamlls.setup{
---   on_attach = function(client, bufnr)
---     -- Enable completion on the client
---     require('cmp_nvim_lsp').setup()
---   end,
---   -- Add filetypes if needed
--- }
+nvim_lsp.gopls.setup {
+    cmd = {"gopls", "--verbose", "-rpc.trace", "serve"},
+    filetypes = {"go", "gomod"},
+    root_dir = util.root_pattern("go.work", "go.mod", ".git"),
+    settings = {
+      gopls = {
+	analyses = {
+	  unusedparams = true,
+	  fieldalignment = true,
+	  nilness = true,
+	  -- Add more checks as desired.
+	},
+	staticcheck = true,
+	gofumpt = true,  -- To format code according to 'gofumpt' style.
+      },
+    },
+  }
 
 -- Setup nvim-cmp.
 cmp.setup({

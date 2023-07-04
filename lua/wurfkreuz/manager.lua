@@ -29,7 +29,7 @@ local plugins = {
 	},
 	 'mbbill/undotree',
 	 'tpope/vim-fugitive',
-	 'fatih/vim-go',
+	 -- 'fatih/vim-go',
 	 'neovim/nvim-lspconfig',
 	 'hashivim/vim-terraform',
 	 'tpope/vim-repeat',
@@ -125,10 +125,11 @@ local plugins = {
 	   --   inlay_hints = { enabled = true },
 	   -- },
 	 },
+	 'hrsh7th/nvim-cmp',
+	 'hrsh7th/cmp-nvim-lsp',
 	 'hrsh7th/cmp-buffer',
 	 'hrsh7th/cmp-path',
 	 'hrsh7th/cmp-cmdline',
-	 'hrsh7th/nvim-cmp',
 	 'L3MON4D3/LuaSnip',
 }
 
