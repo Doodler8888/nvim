@@ -1,6 +1,7 @@
 local nvim_lsp = require('lspconfig')
 local util = nvim_lsp.util
 local cmp = require('cmp')
+local luasnip = require('luasnip')
 
 -- Global mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
@@ -14,7 +15,7 @@ vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist)
 vim.api.nvim_create_autocmd('LspAttach', {
   group = vim.api.nvim_create_augroup('UserLspConfig', {}),
   callback = function(ev)
-    -- Enable completion triggered by <c-x><c-o>
+
     vim.bo[ev.buf].omnifunc = 'v:lua.vim.lsp.omnifunc'
 
     -- Buffer local mappings.
@@ -40,56 +41,78 @@ vim.api.nvim_create_autocmd('LspAttach', {
   end,
 })
 
--- Setup the terraformls
 nvim_lsp.terraformls.setup{
   on_attach = function(client, bufnr)
-    -- Enable completion on the client
-    require('cmp_nvim_lsp').setup()
   end,
   filetypes = {"tf", "hcl", "terraform"},
 }
 
--- Setup the ansiblels
+
+nvim_lsp.sqlls.setup{
+  cmd = { "sql-language-server", "up", "--method", "stdio" },
+  filetypes = { "sql" },
+  on_attach = function(client, bufnr)
+    -- your custom on_attach
+  end,
+  root_dir = function()
+    return vim.loop.cwd()
+  end,
+}
+
+
 nvim_lsp.ansiblels.setup{
   on_attach = function(client, bufnr)
-    -- Enable completion on the client
-    require('cmp_nvim_lsp').setup()
   end,
   filetypes = {"yaml"},
 }
 
--- Setup the pylsp
 nvim_lsp.pylsp.setup{
   on_attach = function(client, bufnr)
-    -- Enable completion on the client
-    require('cmp_nvim_lsp').setup()
   end,
   -- Add filetypes if needed
 }
 
+nvim_lsp.lua_ls.setup({
+    cmd = {"lua-language-server"},
+    settings = {
+        Lua = {
+            runtime = {
+                version = 'LuaJIT',
+                path = vim.split(package.path, ';'),
+            },
+            diagnostics = {
+                globals = {'vim'},
+            },
+            telemetry = {
+                enable = false,
+            },
+        },
+    },
+})
+
 nvim_lsp.gopls.setup {
     cmd = {"gopls", "--verbose", "-rpc.trace", "serve"},
     filetypes = {"go", "gomod"},
-    root_dir = util.root_pattern("go.work", "go.mod", ".git"),
-    settings = {
-      gopls = {
-	analyses = {
-	  unusedparams = true,
-	  fieldalignment = true,
-	  nilness = true,
-	  -- Add more checks as desired.
-	},
-	staticcheck = true,
-	gofumpt = true,  -- To format code according to 'gofumpt' style.
-      },
-    },
+    -- root_dir = util.root_pattern("go.work", "go.mod", ".git"),
+ --    settings = {
+ --      gopls = {
+	-- analyses = {
+	--   unusedparams = true,
+	--   fieldalignment = true,
+	--   nilness = true,
+	--   -- Add more checks as desired.
+	-- },
+	-- staticcheck = true,
+	-- gofumpt = true,  -- To format code according to 'gofumpt' style.
+ --      },
+ --    },
   }
 
 -- Setup nvim-cmp.
 cmp.setup({
   snippet = {
     expand = function(args)
-      vim.fn["vsnip#anonymous"](args.body)
+      luasnip.lsp_expand(args.body)
     end,
   },
   sources = {
@@ -97,5 +120,6 @@ cmp.setup({
     { name = 'buffer' },
     { name = 'path' },
     { name = 'codeium' },
+    { name = 'luasnip' },
   },
 })

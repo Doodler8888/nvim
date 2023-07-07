@@ -13,3 +13,9 @@ vim.keymap.set("x", "<leader>p", [["_dP]])
 vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 -- Make a file executable
 vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
+-- Buffers
+vim.keymap.set("n", "S-n", ":bn<CR>")
+vim.keymap.set("n", "S-p", ":bp<CR>")
+-- Alternative o
+vim.api.nvim_set_keymap("n", "<leader>O", ":execute 'normal! O' | :execute 'normal! j'<CR>", {noremap = true, silent = true})
+vim.api.nvim_set_keymap("n", "<leader>o", ":execute 'normal! o' | :execute 'normal! k'<CR>", {noremap = true, silent = true})

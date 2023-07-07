@@ -9,3 +9,8 @@ end
 
 -- Keymap to call the function
 vim.api.nvim_set_keymap('n', '<leader>at', '<cmd>lua toggle_ale()<CR>', { noremap = true, silent = true })
+
+vim.g.ale_linters = {
+  lua = {},
+}
+
