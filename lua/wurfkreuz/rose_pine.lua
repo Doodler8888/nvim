@@ -1,21 +1,21 @@
 require('rose-pine').setup({
 	--- @usage 'auto'|'main'|'moon'|'dawn'
-	variant = 'main',
+	variant = 'auto',
 	--- @usage 'main'|'moon'|'dawn'
 	dark_variant = 'main',
 	bold_vert_split = false,
 	dim_nc_background = false,
-	disable_background = false,
-	disable_float_background = false,
+	disable_background = true,
+	disable_float_background = true,
 	disable_italics = true,
 
 	--- @usage string hex value or named color from rosepinetheme.com/palette
 	groups = {
-		background = '',
-		background_nc = '',
-		panel = '',
-		panel_nc = '',
-		border = '',
+		background = 'base',
+		background_nc = '_experimental_nc',
+		panel = 'surface',
+		panel_nc = 'base',
+		border = 'highlight_med',
 		comment = 'muted',
 		link = 'iris',
 		punctuation = 'subtle',
@@ -45,6 +45,7 @@ require('rose-pine').setup({
 		-- Blend colours against the "base" background
 		CursorLine = { bg = 'foam', blend = 10 },
 		StatusLine = { fg = 'love', bg = 'love', blend = 10 },
+		FloatBorder = { fg = 'iris', bg = 'none' }
 	}
 })
 

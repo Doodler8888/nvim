@@ -66,11 +66,28 @@ nvim_lsp.ansiblels.setup{
   filetypes = {"yaml"},
 }
 
-nvim_lsp.pylsp.setup{
+
+nvim_lsp.pyright.setup{
   on_attach = function(client, bufnr)
+    -- Your on_attach configuration here
   end,
-  -- Add filetypes if needed
+  -- Add settings if needed
 }
+
+-- nvim_lsp.pylsp.setup{
+--   settings = {
+--     pylsp = {
+--       configurationSources = {"pylint"},
+--       plugins = {
+--         pylint = {enabled = true},
+--         pyflakes = {enabled = true},
+--       },
+--     },
+--   },
+--   on_attach = function(client, bufnr)
+--   end,
+-- }
+--
 
 nvim_lsp.lua_ls.setup({
     cmd = {"lua-language-server"},

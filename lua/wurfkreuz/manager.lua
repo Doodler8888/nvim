@@ -17,6 +17,14 @@ local plugins = {
 	'nvim-telescope/telescope.nvim',
 	'ThePrimeagen/harpoon',
 	{ 'rose-pine/neovim', name = 'rose-pine' },
+	-- {
+	--   'AlexvZyl/nordic.nvim',
+	--   lazy = false,
+	--   priority = 1000,
+	--   -- config = function()
+	--   --   require 'nordic' .load()
+	--   -- end
+	-- },
 	{
 	  'nvim-treesitter/nvim-treesitter',
 	  build = ':TSUpdate'
@@ -41,15 +49,20 @@ local plugins = {
 	   "m4xshen/smartcolumn.nvim",
 	   opts = {}
 	 },
-	 -- {
-	 --   "folke/trouble.nvim",
-	 --   dependencies = { "nvim-tree/nvim-web-devicons" },
-	 --   opts = {
-	 --     -- your configuration comes here
-	 --     -- or leave it empty to use the default settings
-	 --     -- refer to the configuration section below
-	 --   },
-	 -- },
+	 {
+	   "ray-x/go.nvim",
+	   dependencies = {  -- optional packages
+	   "ray-x/guihua.lua",
+	   -- "neovim/nvim-lspconfig",
+	   -- "nvim-treesitter/nvim-treesitter",
+	 },
+	 config = function()
+	   require("go").setup()
+	 end,
+	 event = {"CmdlineEnter"},
+	 ft = {"go", 'gomod'},
+	 build = ':lua require("go.install").update_all_sync()' -- if you need to install/update all binaries
+       },
 	 {
 	   'Exafunction/codeium.vim',
 	   config = function ()
