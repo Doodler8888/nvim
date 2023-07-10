@@ -41,13 +41,13 @@ require('rose-pine').setup({
 	-- https://github.com/rose-pine/neovim/wiki/Recipes
 	highlight_groups = {
 		ColorColumn = { bg = 'subtle', blend = 35 },
-
-		-- Blend colours against the "base" background
 		CursorLine = { bg = 'foam', blend = 10 },
 		StatusLine = { fg = 'love', bg = 'love', blend = 10 },
+		StatusLineNC = { link = "StatusLine" },
 		FloatBorder = { fg = 'iris', bg = 'none' }
 	}
 })
 
 -- Set colorscheme after options
 vim.cmd('colorscheme rose-pine')
+
