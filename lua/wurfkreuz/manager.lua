@@ -16,15 +16,8 @@ local plugins = {
 	'nvim-lua/plenary.nvim',
 	'nvim-telescope/telescope.nvim',
 	'ThePrimeagen/harpoon',
+	'yaocccc/nvim-hlchunk',
 	{ 'rose-pine/neovim', name = 'rose-pine' },
-	-- {
-	--   'AlexvZyl/nordic.nvim',
-	--   lazy = false,
-	--   priority = 1000,
-	--   -- config = function()
-	--   --   require 'nordic' .load()
-	--   -- end
-	-- },
 	{
 	  'nvim-treesitter/nvim-treesitter',
 	  build = ':TSUpdate'

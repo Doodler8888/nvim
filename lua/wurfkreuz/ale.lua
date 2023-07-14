@@ -12,5 +12,6 @@ vim.api.nvim_set_keymap('n', '<leader>at', '<cmd>lua toggle_ale()<CR>', { norema
 
 vim.g.ale_linters = {
   lua = {},
+  haskell = {},
 }
 

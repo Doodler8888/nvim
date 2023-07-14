@@ -41,6 +41,13 @@ vim.api.nvim_create_autocmd('LspAttach', {
   end,
 })
 
+nvim_lsp.hls.setup{
+  on_attach = function(client, bufnr)
+    -- Your configuration here
+  end,
+  filetypes = {"haskell", "lhaskell"},
+}
+
 nvim_lsp.terraformls.setup{
   on_attach = function(client, bufnr)
   end,

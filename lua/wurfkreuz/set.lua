@@ -14,7 +14,7 @@ vim.opt.hlsearch = false
 vim.opt.incsearch = true
 
 vim.opt.signcolumn = "auto"
-vim.opt.shiftwidth = 2
+vim.opt.shiftwidth = 4
 vim.opt.scrolloff = 8
 -- vim.opt.signcolumn = "yes"
 vim.opt.isfname:append("@-@")
